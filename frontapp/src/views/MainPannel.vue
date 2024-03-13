@@ -1,6 +1,6 @@
 <template>
-  <a-layout class="layout">
-    <a-layout-header style="top: 0%;">
+  <a-layout class="layout" style="top: 0%; padding: auto;">
+    <a-layout-header>
       <div class="logo" />
       <a-menu
         v-model:selectedKeys="selectedKeys"
