@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { Button,Flex,Radio,RadioButton,RadioGroup,Layout,Menu,MenuItem,LayoutContent,LayoutHeader
-    ,LayoutFooter,Breadcrumb,BreadcrumbItem,Skeleton,
+    ,LayoutFooter,Breadcrumb,BreadcrumbItem,Skeleton,Row,Col,FloatButton,FloatButtonGroup,Switch
+    ,Select
 } from 'ant-design-vue'
 
 const app = createApp(App)
@@ -26,5 +27,11 @@ app.component(LayoutFooter.name, LayoutFooter)
 app.component(Breadcrumb.name, Breadcrumb)
 app.component(BreadcrumbItem.name, BreadcrumbItem)
 app.component(Skeleton.name, Skeleton)
+app.component(Row.name, Row)
+app.component(Col.name, Col)
+app.component(FloatButton.name, FloatButton)
+app.component(FloatButtonGroup.name, FloatButtonGroup)
+app.component(Switch.name, Switch)
+app.component(Select.name, Select)
 
 app.mount('#app')
