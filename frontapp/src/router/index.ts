@@ -1,21 +1,40 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import MainPannel from '@/views/MainPannel.vue'
+import StockStatus from '@/views/StockStatus.vue'
+import StockAnalysis from '@/views/StockAnalysis.vue'
+import HistoryForce from '@/views/HistoryForce.vue'
+import HistoryRecords from '@/views/HistoryRecords.vue'
+import LogManagement from '@/views/LogManagement.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'home',
-    component: MainPannel
+    redirect:'/stockstatus'
   },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // }
+  {
+    path: '/stockstatus',
+    name: 'stockstatus',
+    component: StockStatus
+  },
+  {
+    path: '/stockanalysis',
+    name: 'stockanalysis',
+    component: StockAnalysis
+  },
+  {
+    path: '/historyforce',
+    name: 'historyforce',
+    component: HistoryForce
+  },
+  {
+    path: '/historyrecords',
+    name: 'historyrecords',
+    component: HistoryRecords
+  },
+  {
+    path: '/logmanagement',
+    name: 'logmanagement',
+    component: LogManagement
+  },
 ]
 
 const router = createRouter({

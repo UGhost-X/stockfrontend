@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { Button,Flex,Radio,RadioButton,RadioGroup,Layout,Menu,MenuItem,LayoutContent,LayoutHeader
-    ,LayoutFooter,Breadcrumb,BreadcrumbItem,Skeleton
+    ,LayoutFooter,Breadcrumb,BreadcrumbItem,Skeleton,
 } from 'ant-design-vue'
 
 const app = createApp(App)
