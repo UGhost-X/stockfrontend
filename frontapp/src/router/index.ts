@@ -8,12 +8,13 @@ import LogManagement from '@/views/LogManagement.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect:'/stockstatus'
+    redirect:'/stockstatus',
   },
   {
     path: '/stockstatus',
     name: 'stockstatus',
-    component: StockStatus
+    component: StockStatus,
+    
   },
   {
     path: '/stockanalysis',

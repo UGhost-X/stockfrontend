@@ -1,6 +1,6 @@
 <template>
     <a-layout class="layout">
-        <a-layout-header style="height: 48px">
+        <a-layout-header style="height: 48px ;border-radius: 10px 10px 0 0;">
       <div class="logo">
         <img src="@/assets/logo.svg" style="width: 42px;height: 42px;margin-top: 4px; "/>
       </div>
@@ -20,7 +20,6 @@
     </a-layout>
 </template>
 <script lang="ts" setup>
-import router from '@/router';
 import { ref } from 'vue';
 const selectedKeys = ref<string[]>(['1']);
 </script>

@@ -1,20 +1,27 @@
 <template>
-  <nav-header/>
-  <router-view/>
+  <nav-header />
+  <router-view />
 </template>
 
 <script setup lang="ts">
-import NavHeader from './components/NavHeader.vue';
+import { onBeforeMount } from "vue";
+import NavHeader from "./components/NavHeader.vue";
+import router from "./router";
+// 刷新的时候回到默认路径
+const refreshPage = onBeforeMount(() => {
+  // 在组件挂载之前执行的代码
+  if (router.currentRoute.value.path !== "/stockstatus") {
+    router.replace("/stockstatus");
+  }
+});
 </script>
 
 <style lang="less">
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  height: 100%;
+  height: 93vh;
 }
 
 </style>
