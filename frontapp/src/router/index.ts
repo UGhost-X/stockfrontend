@@ -14,27 +14,41 @@ const routes: Array<RouteRecordRaw> = [
     path: '/stockstatus',
     name: 'stockstatus',
     component: StockStatus,
-    
+    meta:{
+      title:'大盘晴雨'
+    }
   },
   {
     path: '/stockanalysis',
     name: 'stockanalysis',
-    component: StockAnalysis
+    component: StockAnalysis,
+    meta:{
+      title:'候选分析'
+    }
   },
   {
     path: '/historyforce',
     name: 'historyforce',
-    component: HistoryForce
+    component: HistoryForce,
+    meta:{
+      title:'历史跟踪'
+    }
   },
   {
     path: '/historyrecords',
     name: 'historyrecords',
-    component: HistoryRecords
+    component: HistoryRecords,
+    meta:{
+      title:'历史记录'
+    }
   },
   {
     path: '/logmanagement',
     name: 'logmanagement',
-    component: LogManagement
+    component: LogManagement,
+    meta:{
+      title:'日志管理'
+    }
   },
 ]
 
@@ -42,5 +56,6 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
 
 export default router

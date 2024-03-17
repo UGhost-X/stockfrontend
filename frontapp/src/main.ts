@@ -3,9 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Antd from 'ant-design-vue'
+//@ts-ignore
+import VuewechatTitle from 'vue-wechat-title'
 
 const app = createApp(App)
-
+app.use(VuewechatTitle)
 app.use(store)
 app.use(router)
 app.use(Antd)

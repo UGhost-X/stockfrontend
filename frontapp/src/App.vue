@@ -1,6 +1,6 @@
 <template>
   <nav-header />
-  <router-view />
+  <router-view v-wechat-title="$route.meta.title" />
 </template>
 
 <script setup lang="ts">
@@ -21,7 +21,7 @@ const refreshPage = onBeforeMount(() => {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 93vh;
+  height: 100%;
 }
 
 </style>
