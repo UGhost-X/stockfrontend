@@ -74,9 +74,7 @@
 <script setup lang="ts">
 import { RadarChartOutlined } from "@ant-design/icons-vue";
 import DeleteIcon from "@/components/DeleteIcon.vue";
-import { ref } from "vue";
-import { Component, Ref, onMounted } from "vue";
-import { Empty } from "ant-design-vue";
+import { ref,Ref } from "vue";
 
 const checked = ref<boolean>(false);
 const opendrawer = ref<boolean>(false);
@@ -148,12 +146,6 @@ const onDeleteRecord = (key: string) => {
 // }
 </script>
 <style scoped>
-.layout {
-  margin: 0; /* 居中布局 */
-  height: 100%;
-  margin: 0;
-  background: #ecf0f1;
-}
 .functionalarea {
   margin-bottom: 10px;
 }

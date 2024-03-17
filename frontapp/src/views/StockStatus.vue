@@ -23,12 +23,8 @@
 </template>
 <script lang="ts" setup></script>
 <style scoped>
-.layout {
-  margin: 0; /* 居中布局 */
-  height: 100%;
-  margin: 0;
-  background: #ecf0f1;
-}
+
+
 .cardscontent {
   border-radius: 10px;
   background: #fff;
