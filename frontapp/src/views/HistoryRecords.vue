@@ -3,9 +3,11 @@
   <a-layout class="layout">
     <a-layout-content class="content">
       <a-table
-        class="ant-table-striped"
+        class="tablestyle"
         :columns="columns"
-        :pagination="pagination"
+        :pagination="false"
+        size="large"
+        :scroll="{ y: 450 }"
         :data-source="tabledata">
         <template #emptyText>
           <a-empty description="暂无数据" />
@@ -23,15 +25,16 @@
           </template>
         </template>
       </a-table>
+      <a-pagination v-model:current="current" :total="500" />
     </a-layout-content>
   </a-layout>
 </template>
 <script setup lang="ts">
 import { ref, Ref } from "vue";
-import { computed } from 'vue';
-import type { TableProps } from 'ant-design-vue';
-import { usePagination } from 'vue-request';
-import axios from 'axios';
+import { computed } from "vue";
+import type { TableProps } from "ant-design-vue";
+import { usePagination } from "vue-request";
+import axios from "axios";
 // 表格控制区
 const columns = [
   {
@@ -39,30 +42,36 @@ const columns = [
     dataIndex: "pickdate",
     key: "pickdate",
     align: "center",
-    filters:[{
-      text:'2024/01/02',
-      value:'2024/01/02'
-    }]
+    filters: [
+      {
+        text: "2024/01/02",
+        value: "2024/01/02",
+      },
+    ],
   },
   {
     title: "代码",
     dataIndex: "code",
     key: "code",
     align: "center",
-    filters:[{
-      text:'60000x',
-      value:'60000x'
-    }]
+    filters: [
+      {
+        text: "60000x",
+        value: "60000x",
+      },
+    ],
   },
   {
     title: "名称",
     dataIndex: "name",
     key: "code",
     align: "center",
-    filters:[{
-      text:'xxxxxx',
-      value:'xxxxxx'
-    }]
+    filters: [
+      {
+        text: "xxxxxx",
+        value: "xxxxxx",
+      },
+    ],
   },
   {
     title: "当前涨幅",
@@ -156,12 +165,52 @@ const tabledata: Ref<DataItem[]> = ref([
     code: "6020000",
     name: "xxxxxxx",
   },
-  
+  {
+    key: "3",
+    code: "6020000",
+    name: "xxxxxxx",
+  },
+  {
+    key: "3",
+    code: "6020000",
+    name: "xxxxxxx",
+  },
+  {
+    key: "3",
+    code: "6020000",
+    name: "xxxxxxx",
+  },
+  {
+    key: "3",
+    code: "6020000",
+    name: "xxxxxxx",
+  },
+  {
+    key: "3",
+    code: "6020000",
+    name: "xxxxxxx",
+  },
+  {
+    key: "3",
+    code: "6020000",
+    name: "xxxxxxx",
+  },
+  {
+    key: "3",
+    code: "6020000",
+    name: "xxxxxxx",
+  },
+  {
+    key: "3",
+    code: "6020000",
+    name: "xxxxxxx",
+  },
 ]);
 const onDeleteRecord = (key: string) => {
   tabledata.value = tabledata.value.filter((item) => item.key !== key);
 };
 
+const current = ref(6);
 
 // const {
 //   data: dataSource,
@@ -179,15 +228,32 @@ const onDeleteRecord = (key: string) => {
 
 const pagination = computed(() => ({
   total: 200,
-  current: 1,//current.value,
-  pageSize: 10//pageSize.value,
+  current: 1, //current.value,
+  pageSize: 10, //pageSize.value,
 }));
 </script>
 <style scoped>
-:deep(.ant-table-tbody tr:nth-child(2n)) {
-  background-color: #dddddda4;
+/* tr:nth-child(2n) */
+:deep(.ant-table-tbody) {
+  background-color: rgba(255, 255, 255, 0.3);
 }
-.content{
+
+.tablestyle {
+  background-color: rgb(255, 255, 255);
+  /* border: rgba(0, 0, 0, 0.1) solid 2px; */
+  border-radius: 2px;
+  min-height: 80vh;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content {
   margin-top: 10px;
+  /* border-style: solid;
+  border-color: #ebebeb;
+  border-width: 2px;
+  border-radius: 15px; */
+  /* height: 75vh; */
+  max-height: 60vh;
+  padding: 5px 5px;
 }
 </style>
