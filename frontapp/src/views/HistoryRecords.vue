@@ -1,12 +1,12 @@
 <template>
   <!-- (index:number) => (index%2===1?'ant-table-row':null) -->
   <a-layout class="layout">
-    <a-layout-content>
+    <a-layout-content class="content">
       <a-table
         class="ant-table-striped"
         :columns="columns"
-        :data-source="tabledata"
-        :row-class-name="(_record:any,index:number) => (index%2===0?'oddsrowcolor':'evenrowcolor')">
+        :pagination="pagination"
+        :data-source="tabledata">
         <template #emptyText>
           <a-empty description="暂无数据" />
         </template>
@@ -28,6 +28,10 @@
 </template>
 <script setup lang="ts">
 import { ref, Ref } from "vue";
+import { computed } from 'vue';
+import type { TableProps } from 'ant-design-vue';
+import { usePagination } from 'vue-request';
+import axios from 'axios';
 // 表格控制区
 const columns = [
   {
@@ -35,55 +39,72 @@ const columns = [
     dataIndex: "pickdate",
     key: "pickdate",
     align: "center",
-    width: 100,
+    filters:[{
+      text:'2024/01/02',
+      value:'2024/01/02'
+    }]
   },
   {
     title: "代码",
     dataIndex: "code",
     key: "code",
     align: "center",
+    filters:[{
+      text:'60000x',
+      value:'60000x'
+    }]
   },
   {
     title: "名称",
     dataIndex: "name",
     key: "code",
     align: "center",
+    filters:[{
+      text:'xxxxxx',
+      value:'xxxxxx'
+    }]
   },
   {
     title: "当前涨幅",
     dataIndex: "currentlyshave",
     key: "currentlyshave",
     align: "center",
+    sorter: true,
   },
   {
     title: "三日涨幅",
     dataIndex: "thirdday",
     key: "thirdday",
     align: "center",
+    sorter: true,
   },
   {
     title: "七日涨幅",
     dataIndex: "thirdday",
     key: "seventhday",
     align: "center",
+    sorter: true,
   },
   {
     title: "双周涨幅",
     dataIndex: "dualweeks",
     key: "dualweeks",
     align: "center",
+    sorter: true,
   },
   {
     title: "10%达到日期",
     dataIndex: "10%arrivedate",
     key: "arrivedate",
     align: "center",
+    sorter: true,
   },
   {
     title: "耗费天数",
     dataIndex: "consumedays",
     key: "consumedays",
     align: "center",
+    sorter: true,
   },
   {
     title: "操作",
@@ -115,18 +136,58 @@ const tabledata: Ref<DataItem[]> = ref([
     code: "6020000",
     name: "xxxxxxx",
   },
+  {
+    key: "3",
+    code: "6020000",
+    name: "xxxxxxx",
+  },
+  {
+    key: "3",
+    code: "6020000",
+    name: "xxxxxxx",
+  },
+  {
+    key: "3",
+    code: "6020000",
+    name: "xxxxxxx",
+  },
+  {
+    key: "3",
+    code: "6020000",
+    name: "xxxxxxx",
+  },
+  
 ]);
 const onDeleteRecord = (key: string) => {
   tabledata.value = tabledata.value.filter((item) => item.key !== key);
 };
+
+
+// const {
+//   data: dataSource,
+//   run,
+//   loading,
+//   current,
+//   pageSize,
+// } = usePagination(queryData, {
+//   formatResult: res => res.data.results,
+//   pagination: {
+//     currentKey: 'page',
+//     pageSizeKey: 'results',
+//   },
+// });
+
+const pagination = computed(() => ({
+  total: 200,
+  current: 1,//current.value,
+  pageSize: 10//pageSize.value,
+}));
 </script>
 <style scoped>
-.oddsrowcolor {
-  background-color: #1abc9c;
+:deep(.ant-table-tbody tr:nth-child(2n)) {
+  background-color: #dddddda4;
 }
-.evensrowcolor {
-  background-color: #ff4757;
+.content{
+  margin-top: 10px;
 }
-
-
 </style>
