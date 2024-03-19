@@ -7,7 +7,7 @@
         :columns="columns"
         :pagination="pagination"
         size="large"
-        :scroll="{ y: 400 }"
+        :scroll="{ y: 430 }"
         :data-source="tabledata">
         <template #emptyText>
           <a-empty description="暂无数据" />
@@ -107,6 +107,7 @@ const columns = [
     key: "arrivedate",
     align: "center",
     sorter: true,
+    width: 150,
   },
   {
     title: "耗费天数",
@@ -218,18 +219,22 @@ const pagination = computed(() => ({
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-:deep(.ant-pagination) {
-  right: 20px;
+:deep(.ant-table-wrapper .ant-table-pagination.ant-pagination) {
+  /* position: relative; */
+  padding: 30px 20px 20px 0;
+  margin: 0;
+  border-top: dashed 1px #ced6e0;
+  /* bottom: 0px; */
   /* top: 20px; */
-  bottom: 10px;
+  /* bottom: 10px; */
+  background: #ffffff;
 }
-
 
 .tablestyle {
   background-color: rgb(255, 255, 255);
   /* border: rgba(0, 0, 0, 0.1) solid 2px; */
   border-radius: 2px;
-  max-height: calc(100vh - 58px);
+  min-height: calc(100vh - 83px);
   box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.1);
 }
 
