@@ -5,9 +5,9 @@
       <a-table
         class="tablestyle"
         :columns="columns"
-        :pagination="false"
+        :pagination="pagination"
         size="large"
-        :scroll="{ y: 450 }"
+        :scroll="{ y: 400 }"
         :data-source="tabledata">
         <template #emptyText>
           <a-empty description="暂无数据" />
@@ -25,7 +25,7 @@
           </template>
         </template>
       </a-table>
-      <a-pagination v-model:current="current" :total="500" />
+      <!-- <a-pagination v-model:current="current" :total="500" /> -->
     </a-layout-content>
   </a-layout>
 </template>
@@ -161,27 +161,7 @@ const tabledata: Ref<DataItem[]> = ref([
     name: "xxxxxxx",
   },
   {
-    key: "3",
-    code: "6020000",
-    name: "xxxxxxx",
-  },
-  {
-    key: "3",
-    code: "6020000",
-    name: "xxxxxxx",
-  },
-  {
-    key: "3",
-    code: "6020000",
-    name: "xxxxxxx",
-  },
-  {
-    key: "3",
-    code: "6020000",
-    name: "xxxxxxx",
-  },
-  {
-    key: "3",
+    key: "2",
     code: "6020000",
     name: "xxxxxxx",
   },
@@ -238,11 +218,18 @@ const pagination = computed(() => ({
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+:deep(.ant-pagination) {
+  right: 20px;
+  /* top: 20px; */
+  bottom: 10px;
+}
+
+
 .tablestyle {
   background-color: rgb(255, 255, 255);
   /* border: rgba(0, 0, 0, 0.1) solid 2px; */
   border-radius: 2px;
-  min-height: 80vh;
+  max-height: calc(100vh - 58px);
   box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.1);
 }
 
