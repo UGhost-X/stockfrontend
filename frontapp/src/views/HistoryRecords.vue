@@ -33,8 +33,7 @@
 import { ref, Ref } from "vue";
 import { computed } from "vue";
 import type { TableProps } from "ant-design-vue";
-import { usePagination } from "vue-request";
-import axios from "axios";
+
 // 表格控制区
 const columns = [
   {
