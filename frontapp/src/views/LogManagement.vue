@@ -1,15 +1,11 @@
 <template>
-    <Television props="[800,800]">
-        <h1>123</h1>
-    </Television>
+  <Television #logshow :width="1600" :height="800">
+  </Television>
 </template>
 
-
 <script setup lang="ts">
-import Television from "@/components/Television.vue"; 
-
+import {ref} from 'vue';
+import Television from "@/components/Television.vue";
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

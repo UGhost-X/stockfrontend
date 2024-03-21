@@ -1,30 +1,21 @@
 <template>
-  <svg
-    t="1710944488553"
-    class="icon"
-    viewBox="0 0 1024 1024"
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    p-id="7300"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    :width="200"
-    :height="200">
-    <path
-      d="M960 80H64c-35.3 0-64 28.6-64 64v576c0 35.3 28.7 64 64 64h312c4.4 0 8 3.6 8 8v84c0 2.2-1.8 4-4 4h-60c-17.7 0-32 14.3-32 32v32h448v-32c0-17.7-14.3-32-32-32h-60c-2.2 0-4-1.8-4-4v-84c0-4.4 3.6-8 8-8h312c35.3 0 64-28.7 64-64V144c0-35.4-28.7-64-64-64zM576 876c0 2.2-1.8 4-4 4H452c-2.2 0-4-1.8-4-4v-52c0-4.4 3.6-8 8-8h112c4.4 0 8 3.6 8 8v52z m384-172c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-44c0-2.2 1.8-4 4-4h888c2.2 0 4 1.8 4 4v44z m-4-112H68c-2.2 0-4-1.8-4-4V160c0-8.8 7.2-16 16-16h864c8.8 0 16 7.2 16 16v428c0 2.2-1.8 4-4 4z"
-      fill="#2c2c2c"
-      p-id="7301"
-      data-spm-anchor-id="a313x.search_index.0.i3.4e333a81AbOv7S"
-      class="selected"></path>
-  </svg>
-  <slot name="logshow" :props="svgprops"></slot>
+  <slot :name="logshow">
+    {{ svgheight }}--{{ svgwidth }}
+  </slot>
 </template>
 
 <script setup>
-import { defineProps,ref,Ref } from "vue";
-const { svgprops } = defineProps(["shapeinfo"]);
-const shapeinfo = ref(svgprops)
-const test = ()=>{
-    console.log('print log::::::', svgprops);
-}
+import { ref } from "vue";
 
+const props = defineProps({
+  width: {
+    type: Number,
+  },
+  height: {
+    type: Number,
+  },
+});
+
+const svgwidth = ref(props.width);
+const svgheight = ref(props.height);
 </script>
