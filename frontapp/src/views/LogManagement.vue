@@ -1,7 +1,13 @@
 <template>
-  <a-row>
+  <a-row :gutter="16" align="middle">
     <a-col :span="6">
-      <div class="functionalpannel">123</div>
+      <a-card :bordered="false" class="functionalpannel">
+          <a-space>
+            <a-button type="primary" size="large" style="display: flex;align-items: center;">
+              <template #icon><RunIcon /></template>
+              运行</a-button>
+          </a-space>
+      </a-card>
     </a-col>
     <a-col :span="18" class="logstyle">
       <div class="loginfo">
@@ -15,6 +21,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import RunIcon from "@/components/RunIcon.vue";
 </script>
 
 <style scoped>
@@ -46,9 +53,9 @@ import { ref } from "vue";
   overflow-wrap: break-word;
 }
 .functionalpannel {
-  height: 100%;
+  height: calc(70vh);
   width: 100%;
-  background-color: aquamarine;
+  background-color: rgba(101, 156, 158, 0.233);
   border-radius: 20px;
   margin: 10px 10px 10px 0;
   box-shadow: 5px 5px 5px 5px rgba(53, 49, 49, 0.137);
